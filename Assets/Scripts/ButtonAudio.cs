@@ -4,8 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class ButtonAudio : MonoBehaviour
 {
-    [SerializeField] private List<AudioClip> _audioClips;
     private AudioSource _audioSource;
+    [SerializeField] private List<AudioClip> _audioClips;
     
     private void Awake()
     {
