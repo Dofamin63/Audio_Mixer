@@ -19,6 +19,11 @@ public class ToggleAudio : MonoBehaviour
         _toggle?.onValueChanged.AddListener(ChangeVolume);
     }
     
+    private void OnDisable()
+    {
+        _toggle?.onValueChanged.RemoveListener(ChangeVolume);
+    }
+    
     private void ChangeVolume(bool isMuted)
     {
         _mixer.audioMixer.SetFloat(_nameMixer, Mathf.Log10(isMuted ? MaxVolume : MinVolume) * DecibelMultiplier);

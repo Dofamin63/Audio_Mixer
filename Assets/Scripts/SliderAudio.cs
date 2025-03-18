@@ -19,6 +19,11 @@ public class AudioSetting : MonoBehaviour
         _slider?.onValueChanged.AddListener(ChangeVolume);
     }
 
+    private void OnDisable()
+    {
+        _slider?.onValueChanged.RemoveListener(ChangeVolume);
+    }
+    
     private void ChangeVolume(float volume)
     {
         if (Mathf.Approximately(volume, ZeroVolume))
